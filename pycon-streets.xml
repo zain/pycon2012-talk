@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" font-directory="./fonts">
+
+
+<Style name="roads-labels" filter-mode="first">
+  <Rule>
+    <Filter>([highway] = 'motorway')</Filter>
+    <TextSymbolizer size="30" face-name="League Gothic Regular" placement="line" fill="#f2ec6b" halo-radius="0.5" halo-fill="#333333" line-spacing="2" minimum-distance="100" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>([highway] = 'primary')</Filter>
+    <TextSymbolizer size="20" face-name="League Gothic Regular" placement="line" fill="#f2ec6b" halo-radius="0.5" halo-fill="#333333" line-spacing="2" minimum-distance="100" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Style name="roads" filter-mode="first">
+  <Rule>
+    <Filter>([highway] = 'motorway')</Filter>
+    <LineSymbolizer stroke-width="8" stroke="#242424" />
+  </Rule>
+  <Rule>
+    <Filter>([highway] = 'primary')</Filter>
+    <LineSymbolizer stroke="#242424" stroke-width="4" />
+  </Rule>
+  <Rule>
+    <LineSymbolizer stroke="#969696" />
+  </Rule>
+</Style>
+<Layer name="roads"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>roads</StyleName>
+    <StyleName>roads-labels</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[planet_osm_line]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>
