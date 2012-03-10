@@ -1,0 +1,3 @@
+gunicorn==0.14.1
+TileStache==1.28.0
+ModestMaps
